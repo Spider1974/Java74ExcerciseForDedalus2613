@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.function.BiPredicate;
 import java.io.*;
 
-import employeContoller.com.dedalus.EmpController;	
+import employeContoller.com.dedalus.EmployeeController;	
 
 public class empView {
 
@@ -18,14 +18,15 @@ public class empView {
 			String pword = sc.next();
 		if (UserPassword.test(uname, pword))
 		{
-		EmpController emp = new EmpController();
-		emp.addEmployee();
-		emp.addEmployee();
-		emp.addEmployee();
-		emp.serializeObject();
-		emp.deserializeObject();
-		emp.displayEmployee();
+			EmployeeController emp = new EmployeeController();
+		emp.addempModel();
+		emp.viewempModel();
+		emp.updateempMode();
+		emp.viewempModel();
+		emp.deleteempMode();
+		emp.viewempModel();
 		}
+	
 		else
 		{
 			System.out.println("UserName or Passowrd is wrong");
