@@ -1,0 +1,59 @@
+//Check whether all the emps numbers are indeed unique.
+select empno,count(*) from emp group by empno;
+//List the Empno, Sal and Comm of emps.
+select empno,sal,comm from emp;
+//Display the unique dept with Jobs.
+select distinct deptno, job from emp order by emp.deptno
+//Display the details of Blake.
+select * from emp where ename ='BLACK'
+// List all Clerks.
+SELECT * FROM EMP WHERE job='CLERK';
+// List all emps joined on 1 may 1981.
+select * from emp  where hiredate = '01-may-81';
+//List the emps whose Salaries are less than 3500.
+select * from emp where sal <3500
+//List the emps Empno, Ename, Sal of all emp joined before 1 Apr 1981.
+select * from emp where hiredate >'01-Apr-81';
+//List the emps whose exp is more than 10 years.
+select * from emp where (to_char(sysdate,'YYYY')-to_char(hiredate,'YYYY')) > 10
+//List the emps who are working as Manager.
+select * from emp where job='MANAGER';
+//List the emps who are working as clerks and exp is more that 8 Years.
+select * from emp where (to_char(sysdate,'YYYY')-to_char(hiredate,'YYYY')) > 8 and job='CLERK';
+//List the Empno, Ename, Sal, Job of emps with the annSal <34000 but receiving some comm. Which should not be greater than Sal and the designation should be Salesman working for dept 20.
+select empno,ename,sal,job from emp where deptno=20 and job='SALESMAN' and (sal * 12) < 34000 and sal < comm;
+//List all the Salesmen who are receiving Comm.
+select * from emp where comm is not null;
+// List all the Salesmen of the Dept 30 whose Comm. Is more than their Salary..
+select * from emp where deptno=30 and comm < sal;
+//Display the first 5 records of the EMP table.
+selet ROWNUM,* from emp where rownum <= 5
+// List the emps empno, ename, job, sal of all emps.
+select empno,ename,job,sal from emp;
+//List all the unique deptno of emps.
+select distinct deptno from emp;
+//List all the unique jobs along with deptno.
+select distinct job,deptno from emp;
+//List all the details of ‘Miller’
+select * from emp where ename = 'MILLER';
+//list the details of dept 10.
+select * from dept where deptno=10;
+//select * from emp where job='SALESMAN';
+//List all the emps who joined before 1984.
+select * from emp where hiredate > '01-JAN-1984';
+//List all the emps whose Sal>2500.
+selet * from emp where sal >2500;
+//List all the emps who are working since 1st April 1982.
+select * from emp where hiredate >= '01-Apr-1862';
+//List the empno, ename, sal, Daily sal of all emps.
+select empno,ename sal,(sal/30) DailySal from emp;
+//List the empno, ename, sal, experience of all ‘Analysts’.
+select empno,ename,sal, (to_char(sysdate,'YYYY')-to_char(hiredate,'YYYY')) experience from emp where job='ANALYSTS';
+//List the emps whose exp>6.5 Y
+select * from emp where (to_char(sysdate,'YYYY')-to_char(hiredate,'YYYY')) < 6.5;
+//List the emps who joined in 2nd half of 1981.
+select * from emp where hiredate between '31-jun-1981' and '31-dec-1981';
+//List all the emps in dept 10 who are working as Clerks.
+select * from emp where deptno=10 and job='CLERK';
+//List the emps who joined before 1985 and salary is more than 3000
+select * from emp hiredate < '01-jan-1985' and sal > 3000;
